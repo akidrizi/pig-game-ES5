@@ -1,11 +1,11 @@
-const winningScore = 100;
+var winningScore = 100;
 
-let scores = [0, 0];
-let roundScores = 0;
+var scores = [0, 0];
+var roundScores = 0;
 
-let activePlayerID = 0;
+var activePlayerID = 0;
 
-let dice = 0;
+var dice = 0;
 
 window.addEventListener("DOMContentLoaded", function() {
 	startGame();
