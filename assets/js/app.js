@@ -7,7 +7,7 @@ var activePlayerID = 0;
 
 var dice = 0;
 
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
 	startGame();
 });
 
@@ -18,13 +18,13 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 
 	rollDice();
 	roundScores += dice;
-	
+
 	if (hasRolledAce()) {
 		roundScores = 0;
 		switchUser();
 		return;
 	}
-	
+
 	document.querySelector("#current-" + activePlayerID).textContent = roundScores;
 });
 
@@ -36,8 +36,8 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
 		return;
 	}
 
-		
-    switchUser();
+
+	switchUser();
 });
 
 document.querySelector(".btn-new").addEventListener("click", function () {
@@ -57,12 +57,12 @@ function startGame() {
 	document.querySelector("#current-0").textContent = 0;
 	document.querySelector("#current-1").textContent = 0;
 
-    document.querySelector(".player-0-panel").classList.remove("winner");
-    document.querySelector(".player-1-panel").classList.remove("winner");
+	document.querySelector(".player-0-panel").classList.remove("winner");
+	document.querySelector(".player-1-panel").classList.remove("winner");
 
-    document.querySelector(".player-1-panel").classList.remove("active");
+	document.querySelector(".player-1-panel").classList.remove("active");
 	document.querySelector(".player-0-panel").classList.add("active");
-	
+
 	document.querySelector(".dice").src = "assets/images/dice-1.png";
 }
 
@@ -76,9 +76,9 @@ function finishGame() {
 
 function rollDice() {
 	dice = Math.floor(Math.random() * 6) + 1;
-	
-  	document.querySelector("#current-" + activePlayerID).textContent = dice;
-  	document.querySelector(".dice").src = "assets/images/dice-" + dice + ".png";
+
+	document.querySelector("#current-" + activePlayerID).textContent = dice;
+	document.querySelector(".dice").src = "assets/images/dice-" + dice + ".png";
 }
 
 function dropUser(playerID) {
@@ -92,8 +92,8 @@ function setCurrentPlayer(playerID) {
 
 function switchUser() {
 	dropUser(activePlayerID);
-    activePlayerID === 0 ? (activePlayerID = 1) : (activePlayerID = 0);
-	setCurrentPlayer(activePlayerID);    
+	activePlayerID === 0 ? (activePlayerID = 1) : (activePlayerID = 0);
+	setCurrentPlayer(activePlayerID);
 }
 
 function holdPoints() {
@@ -106,13 +106,13 @@ function holdPoints() {
 function hasWon() {
 	if (scores[activePlayerID] >= winningScore)
 		return true;
-	
+
 	return false;
 }
 
 function hasRolledAce() {
 	if (dice !== 1)
 		return false;
-	
+
 	return true;
 }
