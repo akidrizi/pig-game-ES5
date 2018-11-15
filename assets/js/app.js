@@ -63,6 +63,9 @@ function startGame() {
 	document.querySelector(".player-1-panel").classList.remove("active");
 	document.querySelector(".player-0-panel").classList.add("active");
 
+	document.querySelector("#name-0").textContent = 'Player 1!';
+	document.querySelector("#name-1").textContent = 'Player 2!';
+	
 	document.querySelector(".dice").src = "assets/images/dice-1.png";
 }
 
